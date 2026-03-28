@@ -1,0 +1,6 @@
+package example:console@0.1.0;
+
+world app {
+    import web:std/console@0.1.0;
+    export run: func();
+}

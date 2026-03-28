@@ -1,0 +1,10 @@
+interface console {
+    log: func(message: string);
+    warn: func(message: string);
+    error: func(message: string);
+    info: func(message: string);
+    debug: func(message: string);
+    assert: func(assertion: bool, message: string);
+    time: func(label: string);
+    time-end: func(label: string);
+}
