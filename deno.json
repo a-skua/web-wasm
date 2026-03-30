@@ -13,9 +13,14 @@
     "./wasip2/cli/terminal-stdin": "./wasip2/cli/terminal-stdin.ts",
     "./wasip2/cli/terminal-stdout": "./wasip2/cli/terminal-stdout.ts",
     "./wasip2/cli/terminal-stderr": "./wasip2/cli/terminal-stderr.ts",
+    "./wasip2/clocks/monotonic-clock": "./wasip2/clocks/monotonic-clock.ts",
+    "./wasip2/clocks/wall-clock": "./wasip2/clocks/wall-clock.ts",
+    "./wasip2/filesystem/preopens": "./wasip2/filesystem/preopens.ts",
+    "./wasip2/filesystem/types": "./wasip2/filesystem/types.ts",
     "./wasip2/io/error": "./wasip2/io/error.ts",
     "./wasip2/io/poll": "./wasip2/io/poll.ts",
-    "./wasip2/io/streams": "./wasip2/io/streams.ts"
+    "./wasip2/io/streams": "./wasip2/io/streams.ts",
+    "./wasip2/random/random": "./wasip2/random/random.ts"
   },
   "exclude": [
     "examples/"
