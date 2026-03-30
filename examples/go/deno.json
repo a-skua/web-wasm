@@ -11,8 +11,13 @@
     "wasi:cli/terminal-stderr": "../../wasip2/cli/terminal-stderr.ts",
     "wasi:cli/terminal-stdin": "../../wasip2/cli/terminal-stdin.ts",
     "wasi:cli/terminal-stdout": "../../wasip2/cli/terminal-stdout.ts",
+    "wasi:clocks/monotonic-clock": "../../wasip2/clocks/monotonic-clock.ts",
+    "wasi:clocks/wall-clock": "../../wasip2/clocks/wall-clock.ts",
+    "wasi:filesystem/preopens": "../../wasip2/filesystem/preopens.ts",
+    "wasi:filesystem/types": "../../wasip2/filesystem/types.ts",
     "wasi:io/error": "../../wasip2/io/error.ts",
     "wasi:io/poll": "../../wasip2/io/poll.ts",
-    "wasi:io/streams": "../../wasip2/io/streams.ts"
+    "wasi:io/streams": "../../wasip2/io/streams.ts",
+    "wasi:random/random": "../../wasip2/random/random.ts"
   }
 }
