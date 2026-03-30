@@ -24,4 +24,4 @@ wit/deps: wit/*.wit wkg.toml
 	wkg wit fetch
 
 clean:
-	rm -rf example.wasm internal
+	rm -rf example.wasm dist
