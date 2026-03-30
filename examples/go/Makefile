@@ -1,5 +1,9 @@
 WORLD := app
 
+.PHONY: serve
+serve: build
+	deno run -NR=. jsr:@std/http/file-server
+
 .PHONY: run
 run: main.ts build
 	deno run -E=JCO_DEBUG -R=. $<

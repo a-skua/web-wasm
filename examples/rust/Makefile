@@ -3,6 +3,10 @@ TARGET = wasm32-wasip2
 OUT_DIR = target/$(TARGET)/release
 PACKAGE_NAME := $(shell cargo metadata --format-version=1 --no-deps | jq -r '.packages[0].name')
 
+.PHONY: serve
+serve: build
+	deno run -NR=. jsr:@std/http/file-server
+
 .PHONY: run
 run: main.ts build
 	deno run -E=JCO_DEBUG -R=. $<

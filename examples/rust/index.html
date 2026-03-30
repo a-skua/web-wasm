@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rust Wasm Component Example</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "web:std/console": "https://esm.sh/jsr/@askua/web@0.1.0/std/console",
+        "wasi:cli/environment": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/environment",
+        "wasi:cli/exit": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/exit",
+        "wasi:cli/stderr": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/stderr",
+        "wasi:cli/stdin": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/stdin",
+        "wasi:cli/stdout": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/stdout",
+        "wasi:cli/terminal-input": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/terminal-input",
+        "wasi:cli/terminal-output": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/terminal-output",
+        "wasi:cli/terminal-stderr": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/terminal-stderr",
+        "wasi:cli/terminal-stdin": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/terminal-stdin",
+        "wasi:cli/terminal-stdout": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/cli/terminal-stdout",
+        "wasi:io/error": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/io/error",
+        "wasi:io/poll": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/io/poll",
+        "wasi:io/streams": "https://esm.sh/jsr/@askua/web@0.1.0/wasip2/io/streams"
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Rust Wasm Component Example</h1>
+  <p>Open the browser console to see the output.</p>
+  <script type="module">
+    import { run } from "./dist/example.js";
+
+    run.run();
+  </script>
+</body>
+</html>
