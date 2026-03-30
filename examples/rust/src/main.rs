@@ -4,8 +4,10 @@ wit_bindgen::generate!({
     generate_all,
 });
 
+use web::std::console;
+
 fn main() {
-    web::std::console::time("greeting");
-    web::std::console::log("Hello, Wasm Component with Rust!");
-    web::std::console::time_end("greeting");
+    console::time("greeting");
+    console::log("Hello, Wasm Component with Rust!");
+    console::time_end("greeting");
 }
