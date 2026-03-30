@@ -1,0 +1,39 @@
+{
+  "name": "@askua/web",
+  "version": "0.1.0",
+  "exports": {
+    "./std/console": "./std/console.ts",
+    "./wasip2/cli/environment": "./wasip2/cli/environment.ts",
+    "./wasip2/cli/exit": "./wasip2/cli/exit.ts",
+    "./wasip2/cli/stdin": "./wasip2/cli/stdin.ts",
+    "./wasip2/cli/stdout": "./wasip2/cli/stdout.ts",
+    "./wasip2/cli/stderr": "./wasip2/cli/stderr.ts",
+    "./wasip2/cli/terminal-input": "./wasip2/cli/terminal-input.ts",
+    "./wasip2/cli/terminal-output": "./wasip2/cli/terminal-output.ts",
+    "./wasip2/cli/terminal-stdin": "./wasip2/cli/terminal-stdin.ts",
+    "./wasip2/cli/terminal-stdout": "./wasip2/cli/terminal-stdout.ts",
+    "./wasip2/cli/terminal-stderr": "./wasip2/cli/terminal-stderr.ts",
+    "./wasip2/io/error": "./wasip2/io/error.ts",
+    "./wasip2/io/poll": "./wasip2/io/poll.ts",
+    "./wasip2/io/streams": "./wasip2/io/streams.ts"
+  },
+  "exclude": [
+    "examples/"
+  ],
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  },
+  "publish": {
+    "exclude": [
+      ".claude/",
+      ".github/",
+      "examples/",
+      "spec/",
+      "deno.lock",
+      "*_test.ts"
+    ]
+  }
+}
