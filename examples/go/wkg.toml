@@ -1,0 +1,2 @@
+[overrides]
+"web:std" = { path = "../../spec/std/wit" }
