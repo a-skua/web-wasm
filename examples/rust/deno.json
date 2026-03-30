@@ -1,5 +1,18 @@
 {
   "imports": {
-    "web:std/console": "./console.ts"
+    "web:std/console": "../../std/console.ts",
+    "wasi:cli/environment": "../../wasip2/cli/environment.ts",
+    "wasi:cli/exit": "../../wasip2/cli/exit.ts",
+    "wasi:cli/stderr": "../../wasip2/cli/stderr.ts",
+    "wasi:cli/stdin": "../../wasip2/cli/stdin.ts",
+    "wasi:cli/stdout": "../../wasip2/cli/stdout.ts",
+    "wasi:cli/terminal-input": "../../wasip2/cli/terminal-input.ts",
+    "wasi:cli/terminal-output": "../../wasip2/cli/terminal-output.ts",
+    "wasi:cli/terminal-stderr": "../../wasip2/cli/terminal-stderr.ts",
+    "wasi:cli/terminal-stdin": "../../wasip2/cli/terminal-stdin.ts",
+    "wasi:cli/terminal-stdout": "../../wasip2/cli/terminal-stdout.ts",
+    "wasi:io/error": "../../wasip2/io/error.ts",
+    "wasi:io/poll": "../../wasip2/io/poll.ts",
+    "wasi:io/streams": "../../wasip2/io/streams.ts"
   }
 }
