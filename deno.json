@@ -2,6 +2,8 @@
   "name": "@askua/web",
   "version": "0.1.0",
   "exports": {
+    "./document/document": "./document/document.ts",
+    "./document/types": "./document/types.ts",
     "./std/console": "./std/console.ts",
     "./wasip2/cli/environment": "./wasip2/cli/environment.ts",
     "./wasip2/cli/exit": "./wasip2/cli/exit.ts",
