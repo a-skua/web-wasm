@@ -5,9 +5,12 @@ wit_bindgen::generate!({
 });
 
 use web::std::console;
+use web::document::document;
 
 fn main() {
-    console::time("greeting");
-    console::log("Hello, Wasm Component with Rust!");
-    console::time_end("greeting");
+    console::log("Hello, World!");
+
+    let el = document::query_selector("#app").expect("element not found");
+    let text = document::create_text_node("Hello, World!");
+    el.append_text(&text);
 }

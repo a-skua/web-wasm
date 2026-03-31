@@ -1,0 +1,27 @@
+package web:document@0.1.1;
+
+interface types {
+  resource element {
+    query-selector: func(selector: string) -> option<element>;
+    append: func(child: borrow<element>);
+    append-text: func(child: borrow<text>);
+  }
+
+  resource text {
+    data: func() -> string;
+    set-data: func(value: string);
+  }
+}
+
+interface document {
+  use types.{element, text};
+
+  query-selector: func(selector: string) -> option<element>;
+
+  create-text-node: func(data: string) -> text;
+}
+
+world imports {
+  export types;
+  export document;
+}
