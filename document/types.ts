@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-
 export class Element {
   #element: globalThis.Element;
 
