@@ -1,0 +1,6 @@
+interface document {
+    use types.{element, text};
+
+    query-selector: func(selector: string) -> option<element>;
+    create-text-node: func(data: string) -> text;
+}

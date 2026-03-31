@@ -1,0 +1,4 @@
+world imports {
+    export types;
+    export document;
+}
