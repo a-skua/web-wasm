@@ -1,6 +1,6 @@
 {
   "name": "@askua/web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": {
     "./document/document": "./document/document.ts",
     "./document/types": "./document/types.ts",
