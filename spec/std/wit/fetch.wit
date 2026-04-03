@@ -35,5 +35,5 @@ interface fetch {
         bytes: func() -> list<u8>;
     }
 
-    fetch: func(request: request) -> result<response, fetch-error>;
+    fetch: func(request: request) -> future<result<response, fetch-error>>;
 }
