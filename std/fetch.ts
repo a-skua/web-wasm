@@ -104,7 +104,7 @@ export function fetch(request: Request): FutureResponse {
       xhr.setRequestHeader(h.name, h.value);
     }
 
-    xhr.send(request.body ?? null);
+    xhr.send(request.body ? (request.body.buffer as ArrayBuffer) : null);
 
     return new FutureResponse({ tag: "ok", val: new Response(xhr) });
   } catch (e) {
