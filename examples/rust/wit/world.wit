@@ -1,7 +1,8 @@
 package example:console@0.1.0;
 
 world app {
-    import web:std/console@0.1.0;
-    import web:document/types@0.1.1;
-    import web:document/document@0.1.1;
+    import web:std/console@0.3.0;
+    import web:std/fetch@0.3.0;
+    import web:document/types@0.3.0;
+    import web:document/document@0.3.0;
 }

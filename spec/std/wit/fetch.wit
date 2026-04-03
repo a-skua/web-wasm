@@ -1,6 +1,4 @@
 interface fetch {
-    use wasi:io/poll@0.2.0.{pollable};
-
     enum method {
         get,
         head,
@@ -37,10 +35,5 @@ interface fetch {
         bytes: func() -> list<u8>;
     }
 
-    resource future-response {
-        subscribe: func() -> pollable;
-        get: func() -> option<result<response, fetch-error>>;
-    }
-
-    fetch: func(request: request) -> future-response;
+    fetch: func(request: request) -> result<response, fetch-error>;
 }

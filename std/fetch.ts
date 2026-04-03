@@ -1,5 +1,3 @@
-import { Pollable } from "../wasip2/io/poll.ts";
-
 interface Header {
   name: string;
   value: string;
@@ -76,23 +74,7 @@ export class Response {
   }
 }
 
-export class FutureResponse {
-  #result: FetchResult;
-
-  constructor(result: FetchResult) {
-    this.#result = result;
-  }
-
-  subscribe(): Pollable {
-    return new Pollable(true);
-  }
-
-  get(): FetchResult | undefined {
-    return this.#result;
-  }
-}
-
-export function fetch(request: Request): FutureResponse {
+export function fetch(request: Request): FetchResult {
   const method = METHOD_MAP[request.method] ?? "GET";
 
   try {
@@ -106,12 +88,9 @@ export function fetch(request: Request): FutureResponse {
 
     xhr.send(request.body ? (request.body.buffer as ArrayBuffer) : null);
 
-    return new FutureResponse({ tag: "ok", val: new Response(xhr) });
+    return { tag: "ok", val: new Response(xhr) };
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
-    return new FutureResponse({
-      tag: "err",
-      val: { tag: "network-error", val: message },
-    });
+    return { tag: "err", val: { tag: "network-error", val: message } };
   }
 }

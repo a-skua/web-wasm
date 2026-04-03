@@ -5,16 +5,31 @@ wit_bindgen::generate!({
 });
 
 use web::std::console;
+use web::std::fetch::{self, Method, Request};
 use web::document::document;
 
 fn main() {
-    console::time("greeting console");
-    console::log("Hello, World!");
-    console::time_end("greeting console");
+    console::time("fetch");
+    let req = Request {
+        url: "/hello.json".to_string(),
+        method: Method::Get,
+        headers: vec![],
+        body: None,
+    };
+    let result = fetch::fetch(&req);
+    console::time_end("fetch");
 
-    console::time("greeting dom");
-    let el = document::query_selector("#app").expect("element not found");
-    let text = document::create_text_node("Hello, World!");
-    el.append_text(&text);
-    console::time_end("greeting dom");
+    match result {
+        Ok(response) => {
+            let text = response.text();
+            console::log(&text);
+
+            let el = document::query_selector("#app").expect("element not found");
+            let text_node = document::create_text_node(&text);
+            el.append_text(&text_node);
+        }
+        Err(_) => {
+            console::error("fetch failed");
+        }
+    }
 }
