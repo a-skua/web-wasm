@@ -1,3 +1,4 @@
 world imports {
     export console;
+    export fetch;
 }

@@ -1,0 +1,46 @@
+interface fetch {
+    use wasi:io/poll@0.2.0.{pollable};
+
+    enum method {
+        get,
+        head,
+        post,
+        put,
+        delete,
+        patch,
+        options,
+    }
+
+    record header {
+        name: string,
+        value: string,
+    }
+
+    record request {
+        url: string,
+        method: method,
+        headers: list<header>,
+        body: option<list<u8>>,
+    }
+
+    variant fetch-error {
+        network-error(string),
+        timeout,
+    }
+
+    resource response {
+        status: func() -> u16;
+        status-text: func() -> string;
+        ok: func() -> bool;
+        headers: func() -> list<header>;
+        text: func() -> string;
+        bytes: func() -> list<u8>;
+    }
+
+    resource future-response {
+        subscribe: func() -> pollable;
+        get: func() -> option<result<response, fetch-error>>;
+    }
+
+    fetch: func(request: request) -> future-response;
+}
