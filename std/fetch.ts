@@ -34,7 +34,12 @@ export class Response {
   #headers: Header[];
   #body: Uint8Array;
 
-  constructor(status: number, statusText: string, headers: Header[], body: Uint8Array) {
+  constructor(
+    status: number,
+    statusText: string,
+    headers: Header[],
+    body: Uint8Array,
+  ) {
     this.#status = status;
     this.#statusText = statusText;
     this.#headers = headers;
