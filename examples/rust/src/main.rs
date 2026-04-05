@@ -4,11 +4,13 @@ wit_bindgen::generate!({
     generate_all,
 });
 
-use web::std::console;
-use web::std::fetch::{self, Method, Request};
 use web::document::document;
+use web::std::console;
+use web::std::fetch::{fetch, Method, Request};
+use wstd::io;
 
-fn main() {
+#[wstd::main]
+async fn main() -> io::Result<()> {
     console::time("fetch");
     let req = Request {
         url: "/hello.json".to_string(),
@@ -16,7 +18,7 @@ fn main() {
         headers: vec![],
         body: None,
     };
-    let result = fetch::fetch(&req);
+    let result = fetch(&req).await;
     console::time_end("fetch");
 
     match result {
@@ -32,4 +34,6 @@ fn main() {
             console::error("fetch failed");
         }
     }
+
+    Ok(())
 }

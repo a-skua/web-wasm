@@ -1,4 +1,4 @@
-package web:std@0.3.0;
+package web:std@0.3.1;
 
 interface console {
   log: func(message: string);
@@ -55,7 +55,7 @@ interface fetch {
     bytes: func() -> list<u8>;
   }
 
-  fetch: func(request: request) -> result<response, fetch-error>;
+  fetch: func(request: request) -> future<result<response, fetch-error>>;
 }
 
 world imports {

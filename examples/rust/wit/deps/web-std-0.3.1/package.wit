@@ -1,0 +1,64 @@
+package web:std@0.3.1;
+
+interface console {
+  log: func(message: string);
+
+  warn: func(message: string);
+
+  error: func(message: string);
+
+  info: func(message: string);
+
+  debug: func(message: string);
+
+  assert: func(assertion: bool, message: string);
+
+  time: func(label: string);
+
+  time-end: func(label: string);
+}
+
+interface fetch {
+  enum method {
+    get,
+    head,
+    post,
+    put,
+    delete,
+    patch,
+    options,
+  }
+
+  record header {
+    name: string,
+    value: string,
+  }
+
+  record request {
+    url: string,
+    method: method,
+    headers: list<header>,
+    body: option<list<u8>>,
+  }
+
+  variant fetch-error {
+    network-error(string),
+    timeout,
+  }
+
+  resource response {
+    status: func() -> u16;
+    status-text: func() -> string;
+    ok: func() -> bool;
+    headers: func() -> list<header>;
+    text: func() -> string;
+    bytes: func() -> list<u8>;
+  }
+
+  fetch: func(request: request) -> future<result<response, fetch-error>>;
+}
+
+world imports {
+  export console;
+  export fetch;
+}

@@ -6,12 +6,12 @@ import (
 	"go.bytecodealliance.org/cm"
 )
 
-// This file contains wasmimport and wasmexport declarations for "web:document@0.1.1".
+// This file contains wasmimport and wasmexport declarations for "web:document@0.3.1".
 
-//go:wasmimport web:document/document@0.1.1 query-selector
+//go:wasmimport web:document/document@0.3.1 query-selector
 //go:noescape
 func wasmimport_QuerySelector(selector0 *uint8, selector1 uint32, result *cm.Option[Element])
 
-//go:wasmimport web:document/document@0.1.1 create-text-node
+//go:wasmimport web:document/document@0.3.1 create-text-node
 //go:noescape
 func wasmimport_CreateTextNode(data0 *uint8, data1 uint32) (result0 uint32)

@@ -3,8 +3,8 @@ package example:component@0.1.0;
 world app {
     include wasi:cli/command@0.2.0;
 
-    import web:std/console@0.3.0;
-    import web:std/fetch@0.3.0;
-    import web:document/types@0.3.0;
-    import web:document/document@0.3.0;
+    import web:std/console@0.3.1;
+    import web:std/fetch@0.3.1;
+    import web:document/types@0.3.1;
+    import web:document/document@0.3.1;
 }

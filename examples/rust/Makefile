@@ -15,7 +15,10 @@ run: main.ts build
 build: dist/$(PACKAGE_NAME).js
 
 dist/$(PACKAGE_NAME).js: $(OUT_DIR)/$(PACKAGE_NAME).wasm
-	deno run -A npm:@bytecodealliance/jco transpile --no-nodejs-compat --no-wasi-shim -o $(dir $@) $<
+	deno run  -E -R=.,$(shell deno info --json | jq -r .denoDir) -W=dist \
+		npm:@bytecodealliance/jco transpile \
+		--async-mode jspi --no-nodejs-compat --no-wasi-shim \
+		-o $(dir $@) $<
 
 $(OUT_DIR)/$(PACKAGE_NAME).wasm: $(SRC) wit/deps Cargo.toml
 	cargo build --target $(TARGET) --release
