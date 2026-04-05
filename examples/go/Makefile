@@ -12,7 +12,10 @@ run: main.ts build
 build: dist/example.js
 
 dist/%.js: %.wasm
-	deno run -A npm:@bytecodealliance/jco transpile --no-nodejs-compat --no-wasi-shim -o $(dir $@) $<
+	deno run -E -R=.,$(shell deno info --json | jq -r .denoDir) -W=dist \
+		npm:@bytecodealliance/jco transpile \
+		--async-mode jspi --no-nodejs-compat --no-wasi-shim \
+		-o $(dir $@) $<
 
 example.wasm: main.go internal
 	tinygo build -target=wasip2 -wit-package wit -wit-world $(WORLD) -o $@ ./$<
