@@ -34,19 +34,11 @@ export class Response {
   #headers: Header[];
   #body: Uint8Array;
 
-  constructor(xhr: XMLHttpRequest) {
-    this.#status = xhr.status;
-    this.#statusText = xhr.statusText;
-    this.#headers = xhr
-      .getAllResponseHeaders()
-      .trim()
-      .split("\r\n")
-      .filter((h) => h)
-      .map((h) => {
-        const idx = h.indexOf(": ");
-        return { name: h.slice(0, idx), value: h.slice(idx + 2) };
-      });
-    this.#body = new Uint8Array(xhr.response as ArrayBuffer);
+  constructor(status: number, statusText: string, headers: Header[], body: Uint8Array) {
+    this.#status = status;
+    this.#statusText = statusText;
+    this.#headers = headers;
+    this.#body = body;
   }
 
   status(): number {
@@ -74,21 +66,32 @@ export class Response {
   }
 }
 
-export function fetch(request: Request): FetchResult {
+export async function fetch(request: Request): Promise<FetchResult> {
   const method = METHOD_MAP[request.method] ?? "GET";
 
   try {
-    const xhr = new XMLHttpRequest();
-    xhr.open(method, request.url, false);
-    xhr.responseType = "arraybuffer";
-
+    const headers = new Headers();
     for (const h of request.headers) {
-      xhr.setRequestHeader(h.name, h.value);
+      headers.set(h.name, h.value);
     }
 
-    xhr.send(request.body ? (request.body.buffer as ArrayBuffer) : null);
+    const resp = await globalThis.fetch(request.url, {
+      method,
+      headers,
+      body: request.body ? (request.body.buffer as ArrayBuffer) : null,
+    });
 
-    return { tag: "ok", val: new Response(xhr) };
+    const respHeaders: Header[] = [];
+    resp.headers.forEach((value, name) => {
+      respHeaders.push({ name, value });
+    });
+
+    const body = new Uint8Array(await resp.arrayBuffer());
+
+    return {
+      tag: "ok",
+      val: new Response(resp.status, resp.statusText, respHeaders, body),
+    };
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return { tag: "err", val: { tag: "network-error", val: message } };

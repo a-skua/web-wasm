@@ -1,6 +1,6 @@
 {
   "name": "@askua/web",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "compilerOptions": {
     "lib": ["deno.ns", "dom"]
   },
@@ -26,6 +26,7 @@
     "./wasip2/io/error": "./wasip2/io/error.ts",
     "./wasip2/io/poll": "./wasip2/io/poll.ts",
     "./wasip2/io/streams": "./wasip2/io/streams.ts",
+    "./wasip2/random/insecure-seed": "./wasip2/random/insecure-seed.ts",
     "./wasip2/random/random": "./wasip2/random/random.ts"
   },
   "exclude": [
