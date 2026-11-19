@@ -52,7 +52,8 @@
     "examples/"
   ],
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "version": "deno eval 'import cfg from \"./deno.json\" with { type: \"json\" }; console.log(cfg.version);'"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1"
