@@ -18,11 +18,11 @@ WIT interface definitions for web platform APIs.
 | --------------- | ---------- |
 | `web:std@0.1.0` | `console`  |
 
-### `std/`, `wasip2/` — Deno Host Implementation ([JSR](https://jsr.io/@askua/web))
+### `std/`, `wasip2/`, `wasip3/` — Deno Host Implementation ([JSR](https://jsr.io/@askua/web))
 
 A reference implementation in TypeScript for Deno. Provides `web:std` interface
-implementations and WASI v0.2.0 stubs required by Wasm Components that target
-`wasi:cli/command`.
+implementations and WASI v0.2.0 / v0.3.0 stubs required by Wasm Components that
+target `wasi:cli/command`.
 
 | Module                            | Interface                           |
 | --------------------------------- | ----------------------------------- |
@@ -45,6 +45,25 @@ implementations and WASI v0.2.0 stubs required by Wasm Components that target
 | `./wasip2/io/poll`                | `wasi:io/poll@0.2.0`                |
 | `./wasip2/io/streams`             | `wasi:io/streams@0.2.0`             |
 | `./wasip2/random/random`          | `wasi:random/random@0.2.0`          |
+| `./wasip3/cli/environment`        | `wasi:cli/environment@0.3.0`        |
+| `./wasip3/cli/exit`               | `wasi:cli/exit@0.3.0`               |
+| `./wasip3/cli/types`              | `wasi:cli/types@0.3.0`              |
+| `./wasip3/cli/stdin`              | `wasi:cli/stdin@0.3.0`              |
+| `./wasip3/cli/stdout`             | `wasi:cli/stdout@0.3.0`             |
+| `./wasip3/cli/stderr`             | `wasi:cli/stderr@0.3.0`             |
+| `./wasip3/cli/terminal-input`     | `wasi:cli/terminal-input@0.3.0`     |
+| `./wasip3/cli/terminal-output`    | `wasi:cli/terminal-output@0.3.0`    |
+| `./wasip3/cli/terminal-stdin`     | `wasi:cli/terminal-stdin@0.3.0`     |
+| `./wasip3/cli/terminal-stdout`    | `wasi:cli/terminal-stdout@0.3.0`    |
+| `./wasip3/cli/terminal-stderr`    | `wasi:cli/terminal-stderr@0.3.0`    |
+| `./wasip3/clocks/types`           | `wasi:clocks/types@0.3.0`           |
+| `./wasip3/clocks/monotonic-clock` | `wasi:clocks/monotonic-clock@0.3.0` |
+| `./wasip3/clocks/system-clock`    | `wasi:clocks/system-clock@0.3.0`    |
+| `./wasip3/filesystem/preopens`    | `wasi:filesystem/preopens@0.3.0`    |
+| `./wasip3/filesystem/types`       | `wasi:filesystem/types@0.3.0`       |
+| `./wasip3/random/random`          | `wasi:random/random@0.3.0`          |
+| `./wasip3/random/insecure`        | `wasi:random/insecure@0.3.0`        |
+| `./wasip3/random/insecure-seed`   | `wasi:random/insecure-seed@0.3.0`   |
 
 ## Examples
 

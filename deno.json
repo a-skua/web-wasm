@@ -1,6 +1,6 @@
 {
   "name": "@askua/web",
-  "version": "0.3.1+1",
+  "version": "0.3.2-1",
   "compilerOptions": {
     "lib": ["deno.ns", "dom"]
   },
@@ -27,7 +27,26 @@
     "./wasip2/io/poll": "./wasip2/io/poll.ts",
     "./wasip2/io/streams": "./wasip2/io/streams.ts",
     "./wasip2/random/insecure-seed": "./wasip2/random/insecure-seed.ts",
-    "./wasip2/random/random": "./wasip2/random/random.ts"
+    "./wasip2/random/random": "./wasip2/random/random.ts",
+    "./wasip3/cli/environment": "./wasip3/cli/environment.ts",
+    "./wasip3/cli/exit": "./wasip3/cli/exit.ts",
+    "./wasip3/cli/types": "./wasip3/cli/types.ts",
+    "./wasip3/cli/stdin": "./wasip3/cli/stdin.ts",
+    "./wasip3/cli/stdout": "./wasip3/cli/stdout.ts",
+    "./wasip3/cli/stderr": "./wasip3/cli/stderr.ts",
+    "./wasip3/cli/terminal-input": "./wasip3/cli/terminal-input.ts",
+    "./wasip3/cli/terminal-output": "./wasip3/cli/terminal-output.ts",
+    "./wasip3/cli/terminal-stdin": "./wasip3/cli/terminal-stdin.ts",
+    "./wasip3/cli/terminal-stdout": "./wasip3/cli/terminal-stdout.ts",
+    "./wasip3/cli/terminal-stderr": "./wasip3/cli/terminal-stderr.ts",
+    "./wasip3/clocks/types": "./wasip3/clocks/types.ts",
+    "./wasip3/clocks/monotonic-clock": "./wasip3/clocks/monotonic-clock.ts",
+    "./wasip3/clocks/system-clock": "./wasip3/clocks/system-clock.ts",
+    "./wasip3/filesystem/preopens": "./wasip3/filesystem/preopens.ts",
+    "./wasip3/filesystem/types": "./wasip3/filesystem/types.ts",
+    "./wasip3/random/random": "./wasip3/random/random.ts",
+    "./wasip3/random/insecure": "./wasip3/random/insecure.ts",
+    "./wasip3/random/insecure-seed": "./wasip3/random/insecure-seed.ts"
   },
   "exclude": [
     "examples/"
