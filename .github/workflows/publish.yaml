@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 jobs:
-  publish:
+  jsr:
     runs-on: ubuntu-slim
     environment: publish
     permissions:
@@ -23,8 +23,37 @@ jobs:
       - run: deno check **/*.ts
       - run: deno publish
 
+  wit:
+    runs-on: ubuntu-26.04-arm
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        package: [std, document]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - id: build
+        uses: ./.github/actions/build-wit
+        with:
+          package: ${{ matrix.package }}
+
+      - run: |
+          wkg oci push \
+            "ghcr.io/a-skua/web/${PACKAGE}:${VERSION}" \
+            "${WIT_PATH}"
+        env:
+          PACKAGE: ${{ matrix.package }}
+          VERSION: ${{ steps.build.outputs.version }}
+          WIT_PATH: ${{ steps.build.outputs.path }}
+          WKG_OCI_USERNAME: ${{ github.actor }}
+          WKG_OCI_PASSWORD: ${{ github.token }}
+
   release:
-    needs: publish
+    needs:
+      - jsr
+      - wit
     runs-on: ubuntu-slim
     permissions:
       contents: write
