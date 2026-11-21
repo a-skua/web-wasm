@@ -26,8 +26,8 @@ example.wasm: main.go internal
 internal: wit/deps
 	go tool wit-bindgen-go generate --world $(WORLD) --out $@ wit
 
-wit/deps: wit/*.wit wkg.toml
-	wkg wit fetch
+wit/deps: wit/*.wit wkg-config.toml
+	wkg fetch --config wkg-config.toml
 
 clean:
 	rm -rf example.wasm dist

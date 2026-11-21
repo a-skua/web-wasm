@@ -1,18 +1,20 @@
 {
   "imports": {
-    "web:std/console": "../../std/console.ts",
-    "wasi:cli/environment": "../../wasip2/cli/environment.ts",
-    "wasi:cli/exit": "../../wasip2/cli/exit.ts",
-    "wasi:cli/stderr": "../../wasip2/cli/stderr.ts",
-    "wasi:cli/stdin": "../../wasip2/cli/stdin.ts",
-    "wasi:cli/stdout": "../../wasip2/cli/stdout.ts",
-    "wasi:cli/terminal-input": "../../wasip2/cli/terminal-input.ts",
-    "wasi:cli/terminal-output": "../../wasip2/cli/terminal-output.ts",
-    "wasi:cli/terminal-stderr": "../../wasip2/cli/terminal-stderr.ts",
-    "wasi:cli/terminal-stdin": "../../wasip2/cli/terminal-stdin.ts",
-    "wasi:cli/terminal-stdout": "../../wasip2/cli/terminal-stdout.ts",
-    "wasi:io/error": "../../wasip2/io/error.ts",
-    "wasi:io/poll": "../../wasip2/io/poll.ts",
-    "wasi:io/streams": "../../wasip2/io/streams.ts"
+    "web:document/document": "jsr:@askua/web@0.3.2/document/document",
+    "web:document/types": "jsr:@askua/web@0.3.2/document/types",
+    "web:std/console": "jsr:@askua/web@0.3.2/std/console",
+    "wasi:cli/environment": "jsr:@askua/web@0.3.2/wasip2/cli/environment",
+    "wasi:cli/exit": "jsr:@askua/web@0.3.2/wasip2/cli/exit",
+    "wasi:cli/stderr": "jsr:@askua/web@0.3.2/wasip2/cli/stderr",
+    "wasi:cli/stdin": "jsr:@askua/web@0.3.2/wasip2/cli/stdin",
+    "wasi:cli/stdout": "jsr:@askua/web@0.3.2/wasip2/cli/stdout",
+    "wasi:cli/terminal-input": "jsr:@askua/web@0.3.2/wasip2/cli/terminal-input",
+    "wasi:cli/terminal-output": "jsr:@askua/web@0.3.2/wasip2/cli/terminal-output",
+    "wasi:cli/terminal-stderr": "jsr:@askua/web@0.3.2/wasip2/cli/terminal-stderr",
+    "wasi:cli/terminal-stdin": "jsr:@askua/web@0.3.2/wasip2/cli/terminal-stdin",
+    "wasi:cli/terminal-stdout": "jsr:@askua/web@0.3.2/wasip2/cli/terminal-stdout",
+    "wasi:io/error": "jsr:@askua/web@0.3.2/wasip2/io/error",
+    "wasi:io/poll": "jsr:@askua/web@0.3.2/wasip2/io/poll",
+    "wasi:io/streams": "jsr:@askua/web@0.3.2/wasip2/io/streams"
   }
 }

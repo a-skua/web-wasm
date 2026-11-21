@@ -29,8 +29,8 @@ $(OUT_DIR)/$(PACKAGE_NAME).wasm: $(SRC) wit/deps Cargo.toml
 .PHONY: update
 update: wit/deps Cargo.lock
 
-wit/deps: wit/*.wit wkg.toml
-	wkg wit fetch
+wit/deps: wit/*.wit wkg-config.toml
+	wkg fetch --config wkg-config.toml
 
 Cargo.lock: Cargo.toml
 	cargo check

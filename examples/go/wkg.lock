@@ -10,3 +10,21 @@ registry = "wasi.dev"
 requirement = "=0.2.0"
 version = "0.2.0"
 digest = "sha256:e7e85458e11caf76554b724ebf4f113259decf0f3b1ee2e2930de096f72114a7"
+
+[[packages]]
+name = "web:document"
+registry = "ghcr.io"
+
+[[packages.versions]]
+requirement = "=0.3.2"
+version = "0.3.2"
+digest = "sha256:0f440d8bd7e78532d81804016e9b11fc14b9524ba88dc9e6445ac04aab4a7d55"
+
+[[packages]]
+name = "web:std"
+registry = "ghcr.io"
+
+[[packages.versions]]
+requirement = "=0.3.2"
+version = "0.3.2"
+digest = "sha256:c46a6322468586f7148562454fd75d2dd99676f90b0ed456bc8d1295a3cdaa92"

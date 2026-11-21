@@ -1,0 +1,6 @@
+# Registry configuration for `wkg fetch`.
+# web:* packages are published to ghcr.io/a-skua/web/<package>.
+default_registry = "wasi.dev"
+
+[namespace_registries]
+web = { registry = "ghcr.io", metadata = { preferredProtocol = "oci", "oci" = { registry = "ghcr.io", namespacePrefix = "a-skua/" } } }

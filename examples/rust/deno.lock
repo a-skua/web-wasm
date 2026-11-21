@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@askua/web@0.3.2": "0.3.2",
     "jsr:@std/cli@^1.0.30": "1.0.30",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.10": "1.0.10",
@@ -15,6 +16,9 @@
     "npm:@bytecodealliance/jco@*": "1.42.0"
   },
   "jsr": {
+    "@askua/web@0.3.2": {
+      "integrity": "de4b076e241f4ed7ce9f471fa2ae0c2dc9a0ebadde3eb70deeae1605112718bd"
+    },
     "@std/cli@1.0.30": {
       "integrity": "769446536522d0417d7127ebcabcafac1ab0ce6766d0eb3fca1d36326fe98d13"
     },
@@ -1180,12 +1184,8 @@
     }
   },
   "workspace": {
-    "links": {
-      "jsr:@askua/web@0.3.2": {
-        "dependencies": [
-          "jsr:@std/assert@1"
-        ]
-      }
-    }
+    "dependencies": [
+      "jsr:@askua/web@0.3.2"
+    ]
   }
 }
