@@ -1,0 +1,42 @@
+/// The `Headers` interface.
+///
+/// See <https://developer.mozilla.org/docs/Web/API/Headers>.
+interface headers {
+    use types.{error};
+
+    /// `[name, value]` pair.
+    type header = tuple<string, string>;
+
+    /// `HeadersInit`.
+    variant headers-init {
+        /// `Headers`
+        headers(headers),
+        /// `sequence<sequence<ByteString>>` / `record<ByteString, ByteString>`
+        entries(list<header>),
+    }
+
+    /// `Headers`.
+    resource headers {
+        /// `new Headers(init)`.
+        constructor(init: option<headers-init>) -> result<headers, error>;
+
+        /// `Headers.append()`.
+        append: func(name: string, value: string) -> result<_, error>;
+        /// `Headers.delete()`.
+        delete: func(name: string) -> result<_, error>;
+        /// `Headers.get()`. Returns `none` for `null`.
+        get: func(name: string) -> result<option<string>, error>;
+        /// `Headers.getSetCookie()`.
+        get-set-cookie: func() -> list<string>;
+        /// `Headers.has()`.
+        has: func(name: string) -> result<bool, error>;
+        /// `Headers.set()`.
+        set: func(name: string, value: string) -> result<_, error>;
+        /// `Headers.entries()`.
+        entries: func() -> list<header>;
+        /// `Headers.keys()`.
+        keys: func() -> list<string>;
+        /// `Headers.values()`.
+        values: func() -> list<string>;
+    }
+}

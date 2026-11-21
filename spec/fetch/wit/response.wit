@@ -1,0 +1,51 @@
+/// The `Response` interface.
+///
+/// See <https://developer.mozilla.org/docs/Web/API/Response>.
+interface response {
+    use types.{error, response-type, body-init};
+    use headers.{headers, headers-init};
+
+    /// `ResponseInit`.
+    record response-init {
+        status: option<u16>,
+        status-text: option<string>,
+        headers: option<headers-init>,
+    }
+
+    /// `Response`.
+    resource response {
+        /// `new Response(body, init)`.
+        constructor(body: option<body-init>, init: option<response-init>) -> result<response, error>;
+
+        /// `Response.error()`.
+        error: static func() -> response;
+        /// `Response.redirect()`.
+        redirect: static func(url: string, status: option<u16>) -> result<response, error>;
+
+        /// `Response.body`. Returns `none` for `null`.
+        body: func() -> option<stream<u8>>;
+        /// `Response.bodyUsed`.
+        body-used: func() -> bool;
+        /// `Response.headers`.
+        headers: func() -> headers;
+        /// `Response.ok`.
+        ok: func() -> bool;
+        /// `Response.redirected`.
+        redirected: func() -> bool;
+        /// `Response.status`.
+        status: func() -> u16;
+        /// `Response.statusText`.
+        status-text: func() -> string;
+        /// `Response.type`.
+        %type: func() -> response-type;
+        /// `Response.url`.
+        url: func() -> string;
+
+        /// `Response.bytes()` (also covers `Response.arrayBuffer()`).
+        bytes: async func() -> result<list<u8>, error>;
+        /// `Response.text()`.
+        text: async func() -> result<string, error>;
+        /// `Response.clone()`.
+        clone: func() -> result<response, error>;
+    }
+}

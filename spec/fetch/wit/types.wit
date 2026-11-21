@@ -1,0 +1,148 @@
+/// Shared types of the Fetch API.
+///
+/// See <https://developer.mozilla.org/docs/Web/API/Fetch_API>.
+interface types {
+    /// Exceptions thrown (or Promises rejected) by the Fetch API.
+    ///
+    /// Each case corresponds to the JavaScript error name and carries its message.
+    variant error {
+        /// `TypeError`: invalid URL, invalid header, body already used, network error, etc.
+        type-error(string),
+        /// `RangeError`: e.g. an invalid status passed to `Response()`.
+        range-error(string),
+        /// `AbortError` (`DOMException`): the request was aborted via its signal.
+        abort-error(string),
+        /// `TimeoutError` (`DOMException`): aborted by `AbortSignal.timeout()`.
+        timeout-error(string),
+        /// `NotAllowedError` (`DOMException`): blocked by Permissions Policy.
+        not-allowed-error(string),
+    }
+
+    /// `Request.method`.
+    ///
+    /// HTTP methods are case-sensitive tokens, so any other method is `other`.
+    variant method {
+        get,
+        head,
+        post,
+        put,
+        delete,
+        connect,
+        options,
+        trace,
+        patch,
+        other(string),
+    }
+
+    /// `RequestMode`.
+    enum request-mode {
+        navigate,
+        same-origin,
+        no-cors,
+        cors,
+    }
+
+    /// `RequestCredentials`.
+    enum request-credentials {
+        omit,
+        same-origin,
+        %include,
+    }
+
+    /// `RequestCache`.
+    enum request-cache {
+        default,
+        no-store,
+        reload,
+        no-cache,
+        force-cache,
+        only-if-cached,
+    }
+
+    /// `RequestRedirect`.
+    enum request-redirect {
+        follow,
+        error,
+        manual,
+    }
+
+    /// `RequestDuplex`.
+    enum request-duplex {
+        half,
+    }
+
+    /// `RequestPriority`.
+    enum request-priority {
+        high,
+        low,
+        auto,
+    }
+
+    /// `ReferrerPolicy`.
+    ///
+    /// The empty string `""` is represented by `none` of `option<referrer-policy>`.
+    enum referrer-policy {
+        no-referrer,
+        no-referrer-when-downgrade,
+        same-origin,
+        origin,
+        strict-origin,
+        origin-when-cross-origin,
+        strict-origin-when-cross-origin,
+        unsafe-url,
+    }
+
+    /// `RequestDestination`.
+    ///
+    /// The empty string `""` is represented by `none` of `option<request-destination>`.
+    /// Values unknown to this definition are passed through as `other`.
+    variant request-destination {
+        audio,
+        audioworklet,
+        document,
+        embed,
+        fencedframe,
+        font,
+        frame,
+        iframe,
+        image,
+        json,
+        manifest,
+        object,
+        paintworklet,
+        report,
+        script,
+        serviceworker,
+        sharedworker,
+        speculationrules,
+        style,
+        text,
+        track,
+        video,
+        worker,
+        xslt,
+        other(string),
+    }
+
+    /// `ResponseType`.
+    enum response-type {
+        basic,
+        cors,
+        default,
+        error,
+        opaque,
+        opaqueredirect,
+    }
+
+    /// `BodyInit`.
+    ///
+    /// `Blob`, `FormData` and `URLSearchParams` are not supported.
+    variant body-init {
+        /// `USVString`
+        text(string),
+        /// `BufferSource` (`ArrayBuffer`, `TypedArray`, `DataView`)
+        bytes(list<u8>),
+        /// `ReadableStream<Uint8Array>`
+        %stream(stream<u8>),
+    }
+}

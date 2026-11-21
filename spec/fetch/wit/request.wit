@@ -1,0 +1,96 @@
+/// The `Request` interface.
+///
+/// See <https://developer.mozilla.org/docs/Web/API/Request>.
+interface request {
+    use types.{
+        error,
+        method,
+        request-mode,
+        request-credentials,
+        request-cache,
+        request-redirect,
+        request-duplex,
+        request-priority,
+        referrer-policy,
+        request-destination,
+        body-init,
+    };
+    use headers.{headers, headers-init};
+
+    /// `RequestInfo` (`Request` or `USVString`).
+    variant request-info {
+        url(string),
+        request(request),
+    }
+
+    /// `RequestInit`.
+    ///
+    /// `attributionReporting`, `browsingTopics`, `privateToken` and
+    /// `targetAddressSpace` are not supported.
+    record request-init {
+        method: option<method>,
+        headers: option<headers-init>,
+        body: option<body-init>,
+        referrer: option<string>,
+        /// `none` keeps the default. Use `some(none)` for `""`.
+        referrer-policy: option<option<referrer-policy>>,
+        mode: option<request-mode>,
+        credentials: option<request-credentials>,
+        cache: option<request-cache>,
+        redirect: option<request-redirect>,
+        integrity: option<string>,
+        keepalive: option<bool>,
+        /// `AbortSignal`. The request is aborted when this future resolves.
+        signal: option<future>,
+        duplex: option<request-duplex>,
+        priority: option<request-priority>,
+    }
+
+    /// `Request`.
+    resource request {
+        /// `new Request(input, init)`.
+        constructor(input: request-info, init: option<request-init>) -> result<request, error>;
+
+        /// `Request.body`. Returns `none` for `null`.
+        body: func() -> option<stream<u8>>;
+        /// `Request.bodyUsed`.
+        body-used: func() -> bool;
+        /// `Request.cache`.
+        cache: func() -> request-cache;
+        /// `Request.credentials`.
+        credentials: func() -> request-credentials;
+        /// `Request.destination`. Returns `none` for `""`.
+        destination: func() -> option<request-destination>;
+        /// `Request.duplex`.
+        duplex: func() -> request-duplex;
+        /// `Request.headers`.
+        headers: func() -> headers;
+        /// `Request.integrity`.
+        integrity: func() -> string;
+        /// `Request.isHistoryNavigation`.
+        is-history-navigation: func() -> bool;
+        /// `Request.isReloadNavigation`.
+        is-reload-navigation: func() -> bool;
+        /// `Request.keepalive`.
+        keepalive: func() -> bool;
+        /// `Request.method`.
+        method: func() -> method;
+        /// `Request.mode`.
+        mode: func() -> request-mode;
+        /// `Request.redirect`.
+        redirect: func() -> request-redirect;
+        /// `Request.referrer`.
+        referrer: func() -> string;
+        /// `Request.referrerPolicy`. Returns `none` for `""`.
+        referrer-policy: func() -> option<referrer-policy>;
+        /// `Request.url`.
+        url: func() -> string;
+
+        /// `Request.bytes()` (also covers `Request.arrayBuffer()`).
+        bytes: async func() -> result<list<u8>, error>;
+        /// `Request.text()`.
+        text: async func() -> result<string, error>;
+        /// `Request.clone()`.
+        clone: func() -> result<request, error>;
+    }
+}

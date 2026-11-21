@@ -1,0 +1,13 @@
+/// The `fetch()` function.
+///
+/// See <https://developer.mozilla.org/docs/Web/API/Window/fetch>.
+interface fetch {
+    use types.{error};
+    use request.{request-info, request-init};
+    use response.{response};
+
+    /// `fetch(resource, options)`.
+    ///
+    /// HTTP error statuses (e.g. 404) are not errors; check `response.ok`.
+    fetch: async func(%resource: request-info, options: option<request-init>) -> result<response, error>;
+}
