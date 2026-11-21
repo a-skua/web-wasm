@@ -7,6 +7,11 @@
   "exports": {
     "./document/document": "./document/document.ts",
     "./document/types": "./document/types.ts",
+    "./fetch/fetch": "./fetch/fetch.ts",
+    "./fetch/headers": "./fetch/headers.ts",
+    "./fetch/request": "./fetch/request.ts",
+    "./fetch/response": "./fetch/response.ts",
+    "./fetch/types": "./fetch/types.ts",
     "./std/console": "./std/console.ts",
     "./std/fetch": "./std/fetch.ts",
     "./wasip2/cli/environment": "./wasip2/cli/environment.ts",
