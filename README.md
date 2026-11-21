@@ -14,19 +14,27 @@ standard APIs. A reference host implementation is published as a Deno package on
 
 WIT interface definitions for web platform APIs.
 
-| Package         | Interfaces |
-| --------------- | ---------- |
-| `web:std@0.1.0` | `console`  |
+| Package                            | Interfaces                                         |
+| ---------------------------------- | -------------------------------------------------- |
+| `web:std@0.3.2`                    | `console`                                          |
+| `web:document@0.3.2`               | `types`, `document`                                |
+| [`web:fetch@0.3.2`](./spec/fetch/) | `types`, `headers`, `request`, `response`, `fetch` |
 
-### `std/`, `wasip2/`, `wasip3/` — Deno Host Implementation ([JSR](https://jsr.io/@askua/web))
+### `std/`, `document/`, `fetch/`, `wasip2/`, `wasip3/` — Deno Host Implementation ([JSR](https://jsr.io/@askua/web))
 
-A reference implementation in TypeScript for Deno. Provides `web:std` interface
+A reference implementation in TypeScript for Deno. Provides `web:*` interface
 implementations and WASI v0.2.0 / v0.3.0 stubs required by Wasm Components that
 target `wasi:cli/command`.
 
 | Module                            | Interface                           |
 | --------------------------------- | ----------------------------------- |
-| `./std/console`                   | `web:std/console@0.1.0`             |
+| `./std/console`                   | `web:std/console@0.3.2`             |
+| `./document/types`                | `web:document/types@0.3.2`          |
+| `./document/document`             | `web:document/document@0.3.2`       |
+| `./fetch/headers`                 | `web:fetch/headers@0.3.2`           |
+| `./fetch/request`                 | `web:fetch/request@0.3.2`           |
+| `./fetch/response`                | `web:fetch/response@0.3.2`          |
+| `./fetch/fetch`                   | `web:fetch/fetch@0.3.2`             |
 | `./wasip2/cli/environment`        | `wasi:cli/environment@0.2.0`        |
 | `./wasip2/cli/exit`               | `wasi:cli/exit@0.2.0`               |
 | `./wasip2/cli/stdin`              | `wasi:cli/stdin@0.2.0`              |
@@ -73,6 +81,8 @@ Components into JavaScript modules, then run them on [Deno](https://deno.com/).
 
 - [Go](./examples/go/) — TinyGo + wit-bindgen-go
 - [Rust](./examples/rust/) — Rust + wit-bindgen
+- [Rust (fetch)](./examples/fetch/rust/) — `web:fetch` with Component Model
+  async (`async func`, `stream<u8>`)
 
 ## Install
 
