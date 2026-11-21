@@ -2,36 +2,36 @@
 
 package console
 
-// This file contains wasmimport and wasmexport declarations for "web:std@0.3.1".
+// This file contains wasmimport and wasmexport declarations for "web:std@0.3.2".
 
-//go:wasmimport web:std/console@0.3.1 log
+//go:wasmimport web:std/console@0.3.2 log
 //go:noescape
 func wasmimport_Log(message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 warn
+//go:wasmimport web:std/console@0.3.2 warn
 //go:noescape
 func wasmimport_Warn(message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 error
+//go:wasmimport web:std/console@0.3.2 error
 //go:noescape
 func wasmimport_Error(message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 info
+//go:wasmimport web:std/console@0.3.2 info
 //go:noescape
 func wasmimport_Info(message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 debug
+//go:wasmimport web:std/console@0.3.2 debug
 //go:noescape
 func wasmimport_Debug(message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 assert
+//go:wasmimport web:std/console@0.3.2 assert
 //go:noescape
 func wasmimport_Assert(assertion0 uint32, message0 *uint8, message1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 time
+//go:wasmimport web:std/console@0.3.2 time
 //go:noescape
 func wasmimport_Time(label0 *uint8, label1 uint32)
 
-//go:wasmimport web:std/console@0.3.1 time-end
+//go:wasmimport web:std/console@0.3.2 time-end
 //go:noescape
 func wasmimport_TimeEnd(label0 *uint8, label1 uint32)
