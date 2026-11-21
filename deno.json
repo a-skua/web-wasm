@@ -1,6 +1,6 @@
 {
   "name": "@askua/web",
-  "version": "0.3.2-1",
+  "version": "0.3.2",
   "compilerOptions": {
     "lib": ["deno.ns", "dom"]
   },
@@ -13,7 +13,6 @@
     "./fetch/response": "./fetch/response.ts",
     "./fetch/types": "./fetch/types.ts",
     "./std/console": "./std/console.ts",
-    "./std/fetch": "./std/fetch.ts",
     "./wasip2/cli/environment": "./wasip2/cli/environment.ts",
     "./wasip2/cli/exit": "./wasip2/cli/exit.ts",
     "./wasip2/cli/stdin": "./wasip2/cli/stdin.ts",
