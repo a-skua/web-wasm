@@ -1,0 +1,3 @@
+[overrides]
+"web:std" = { path = "../../../spec/std/wit" }
+"web:fetch" = { path = "../../../spec/fetch/wit" }
